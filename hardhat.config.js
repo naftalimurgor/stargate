@@ -41,10 +41,14 @@ require("./tasks/sendCreditsAll");
 require("./tasks/getChainPath");
 require("./tasks/getFeeVersion")
 require("./tasks")
-
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more4
 
+const dotenv = require('dotenv')
+
+dotenv.config()
+const PRIVATEKEY_ONE = process.env.PRIVATEKEY_ONE
+const PRIVATEKEY_TWO = process.env.PRIVATEKEY_TWO
 
 function getMnemonic(networkName) {
     if (networkName) {
@@ -140,7 +144,16 @@ module.exports = {
             url: `https://rpc.testnet.fantom.network/`,
             chainId: 4002,
             accounts: accounts(),
+        },
+        scrollSepolia: {
+            url: "https://sepolia-rpc.scroll.io/",
+            accounts: [PRIVATEKEY_ONE],
+        },
+        scrollMainnet: {
+            url: "https://rpc.ankr.com/scroll",
+            accounts: [PRIVATEKEY_TWO],
         }
+
     },
     mocha: {
         timeout: 500000,
