@@ -145,12 +145,14 @@ module.exports = {
             chainId: 4002,
             accounts: accounts(),
         },
-        scrollSepolia: {
+        'scroll-sepolia': {
             url: "https://sepolia-rpc.scroll.io/",
+            chainId: 534351,
             accounts: [PRIVATEKEY_ONE],
         },
-        scrollMainnet: {
+        'scroll-mainnet': {
             url: "https://rpc.ankr.com/scroll",
+            chainId: 534352,
             accounts: [PRIVATEKEY_TWO],
         }
 
